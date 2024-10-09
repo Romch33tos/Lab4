@@ -3,7 +3,8 @@ using namespace std;
 
 int main() {
     setlocale(LC_ALL, "russian");
-    int matrix[3][3];
+    int size = 3;
+    int matrix[size][size];
     int min_val = INT_MAX;
     int max_val = INT_MIN;
     int min_i, min_j, max_i, max_j;
@@ -36,11 +37,10 @@ int main() {
         cout << endl;
     }
     
-    int temp = matrix[min_i][min_j];
-    matrix[min_i][min_j] = matrix[max_i][max_j];
-    matrix[max_i][max_j] = temp;
-    
-    cout << "Полученная матрица:" << endl;
+    matrix[0][0] = matrix[max_i][max_j];
+    matrix[size-1][size-1] = matrix[min_i][min_j];
+
+    cout << "Обработанная матрица:" << endl;
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
             cout << matrix[i][j] << " ";
